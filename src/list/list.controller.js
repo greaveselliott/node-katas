@@ -32,5 +32,5 @@ export const updateListItem = (req, res) => {
 
 // Delete list item
 export const deleteListItem = (req, res) => {
-
+    List.remove({ _id: req.params})
 }
