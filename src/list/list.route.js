@@ -1,11 +1,12 @@
 import {
     createListItem,
-    readList,
+    readListItem,
     updateListItem,
-    deleteListItem
+    deleteListItem,
+    readList
 } from './list.controller';
 
-const routes = (app) => {
+const ListRoutes = (app) => {
     app.route('/list')
         .get((req, res, next) => {
             // middleware
@@ -15,9 +16,10 @@ const routes = (app) => {
         }, readList)
         .post(createListItem);
 
-    app.route('/list/:listItemId')
+    app.route('/list/:id')
+        .get(readListItem)
         .put(updateListItem)
         .delete(deleteListItem);
 };
 
-export default routes;
+export default ListRoutes;
